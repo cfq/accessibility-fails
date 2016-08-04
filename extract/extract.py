@@ -50,7 +50,7 @@ with open('../tools.html') as toolfile:
     toolfile.close()
 
 soup = BeautifulSoup(html, 'html.parser')
-results = soup.find('tbody').findChildren('tr')
+results = soup.select('#detailed-results-table tbody')[0].findChildren('tr')
 
 tmaps = [zip(ts.keys(), [group]*len(ts.keys())) for group, ts in tests.iteritems()]
 titlemap = dict(list(chain.from_iterable(tmaps)))
