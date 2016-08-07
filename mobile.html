@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Inaccessible Mobile Page</title>
+    <style type="text/css">
+        @media (max-width: 640px) {
+            p.colour-example {
+                color: #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>This page contains CSS that renders content inaccessible in mobile</h1>
+
+    <p class="colour-example">
+        This text will have a very low colour contrast ratio in mobile.
+    </p>
+
+    <p class="img-example">
+        <img src="images/bbc-blocks-dark.png" alt="" />
+    </p>
+
+    <script>
+        function removeAlt(){
+            if( window.innerWidth <= 640 ){
+                document.getElementsByTagName('IMG')[0].removeAttribute('alt');
+            }
+        }
+
+        window.onresize = removeAlt;
+        removeAlt();
+    </script>
+</body>
+</html>
